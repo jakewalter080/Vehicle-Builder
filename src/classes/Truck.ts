@@ -15,6 +15,7 @@ class Truck {
   weight: number;
   topSpeed: number;
   wheels: Wheel[];
+  towingCapacity: number;
   // TODO: Declare properties of the Truck class
   // TODO: The properties should include vin, color, make, model, year, weight, top speed, wheels, and towing capacity
   // TODO: The types should be as follows: vin (string), color (string), make (string), model (string), year (number), weight (number), topSpeed (number), wheels (Wheel[]), towingCapacity (number)
@@ -31,6 +32,7 @@ class Truck {
     weight: number,
     topSpeed: number,
     wheels: Wheel[],
+    towingCapacity: number
   ) {
 
     // TODO: The constructor should check if the wheels array has 4 elements and create 4 new default Wheel objects if it does not
@@ -44,6 +46,7 @@ class Truck {
     this.year = year;
     this.weight = weight;
     this.topSpeed = topSpeed;
+    this.towingCapacity = towingCapacity
     if (wheels.length !== 4) {
       this.wheels = [new Wheel(), new Wheel(), new Wheel(), new Wheel()];
     } else {
