@@ -56,10 +56,16 @@ class Truck {
   // TODO: Implement the tow method from the AbleToTow interface
   tow(vehicle: Truck | Motorbike | Car): void {
     // TODO: Get the make an model of the vehicle if it exists
-    const vehicleMake = vehicle.make;
-    const vehicleModel = vehicle.model;
+    // const vehicleMake = vehicle.make;
+    // const vehicleModel = vehicle.model;
+    let vehicleType = vehicle.constructor.name;
+    let vehicleMake = vehicle.make;
+    let vehicleModel = vehicle.model;
     if (vehicle.weight <= this.towingCapacity) {
       console.log(`${vehicleMake} ${vehicleModel} is being towed`);
+    } else {
+      console.log(`${vehicleMake} ${vehicleModel} is too heavy to be towed`);
+    }
     }
     // TODO: Check if the vehicle's weight is less than or equal to the truck's towing capacity
     // TODO: If it is, log that the vehicle is being towed
