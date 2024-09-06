@@ -56,6 +56,17 @@ import Wheel from './Wheel.js';
   // TODO: The method should call the printDetails method of the parent class
   // TODO: The method should log the details of the Motorbike
   // TODO: The details should include the VIN, make, model, year, weight, top speed, color, and wheels
+  override printDetails(): void {
+    super.printDetails();
+    console.log(`VIN: ${this.vin}`);
+    console.log(`Color: ${this.color}`);
+    console.log(`Make: ${this.make}`);
+    console.log(`Model: ${this.model}`);
+    console.log(`Year: ${this.year}`);
+    console.log(`Weight: ${this.weight}`);
+    console.log(`Top Speed: ${this.topSpeed} mph`);
+    console.log(`Front Wheel: ${this.wheels}`);
+  }
 }
 
 // Export the Motorbike class as the default export
