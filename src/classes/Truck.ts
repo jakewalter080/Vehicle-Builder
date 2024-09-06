@@ -60,8 +60,8 @@ class Truck extends Vehicle implements AbleToTow {
   // TODO: If it is, log that the vehicle is being towed
   // TODO: If it is not, log that the vehicle is too heavy to be towed
   tow(Vehicle: Car | Motorbike | Truck): void {
-    const vehicleMake = this.make;
-    const vehicleModel = this.model;
+    const vehicleMake = this.make;  //this can get changed to vehicle.make
+    const vehicleModel = this.model; //this can get changed to vehicle.model the prob was i did not define vehicle in cli so it was not working
       
       if (this.weight <= this.towingCapacity) {
           console.log(`${vehicleMake} ${vehicleModel} is being towed`);
