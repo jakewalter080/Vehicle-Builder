@@ -52,6 +52,28 @@ class Cli {
       });
   }
 
+  createVehicle(): void {
+    inquirer
+      .prompt9{
+        type: `list`,
+        name: `vehicleType`,
+        message: `Select a vehicle type`,
+        choices: [`Car`, `Truck`, `Motorbike`]
+    },
+    ])
+    .then((answers) => {
+      if (answers.vehicleType === `Car`) {
+        this.createCar();
+      }
+      if (answers.vehicleType === `Motorbike`) {
+        this.createMotorbike();
+      }
+      if (answers.vehicleType === `Truck`) {
+        this.createTruck();
+      }
+    });
+  }
+
   // method to create a vehicle
   createVehicle(): void {
     inquirer
@@ -192,6 +214,9 @@ class Cli {
           [],
           parseInt(answers.towingCapacity)
         );
+          this.vehicles.push(truck);
+          this.selectedVehicleVin = truck.vin;
+          this.performActions();
 
 
         // TODO: push the truck to the vehicles array
