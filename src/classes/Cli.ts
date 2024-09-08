@@ -54,12 +54,13 @@ class Cli {
 
   createVehicle(): void {
     inquirer
-      .prompt9{
-        type: `list`,
-        name: `vehicleType`,
-        message: `Select a vehicle type`,
-        choices: [`Car`, `Truck`, `Motorbike`]
-    },
+      .prompt{[
+        {
+          type: `list`,
+          name: `vehicleType`,
+          message: `Select a vehicle type`,
+          choices: [`Car`, `Truck`, `Motorbike`]
+        },
     ])
     .then((answers) => {
       if (answers.vehicleType === `Car`) {
