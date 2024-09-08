@@ -44,7 +44,7 @@ class Cli {
           }),
         },
       ])
-      .then((answers) => {
+      .then((answers: any) => {
         // set the selectedVehicleVin to the vin of the selected vehicle
         this.selectedVehicleVin = answers.selectedVehicleVin;
         // perform actions on the selected vehicle
@@ -52,28 +52,28 @@ class Cli {
       });
   }
 
-  createVehicle(): void {
-    inquirer
-      .prompt{[
-        {
-          type: `list`,
-          name: `vehicleType`,
-          message: `Select a vehicle type`,
-          choices: [`Car`, `Truck`, `Motorbike`]
-        },
-    ])
-    .then((answers) => {
-      if (answers.vehicleType === `Car`) {
-        this.createCar();
-      }
-      if (answers.vehicleType === `Motorbike`) {
-        this.createMotorbike();
-      }
-      if (answers.vehicleType === `Truck`) {
-        this.createTruck();
-      }
-    });
-  }
+  // createVehicle(): void {
+  //     inquirer
+  //       .prompt([
+  //         {
+  //           type: `list`,
+  //           name: `vehicleType`,
+  //           message: `Select a vehicle type`,
+  //           choices: [`Car`, `Truck`, `Motorbike`]
+  //         },
+  //     ])
+  //     .then((answers) => {
+  //       if (answers.vehicleType === `Car`) {
+  //         this.createCar();
+  //       }
+  //       if (answers.vehicleType === `Motorbike`) {
+  //         this.createMotorbike();
+  //       }
+  //       if (answers.vehicleType === `Truck`) {
+  //         this.createTruck();
+  //       }
+  //     });
+  //   }
 
   // method to create a vehicle
   createVehicle(): void {
@@ -312,7 +312,7 @@ class Cli {
 
   // method to find a vehicle to tow
   // TODO: add a parameter to accept a truck object
-  findVehicleToTow(truck): void {
+  findVehicleToTow(truck: Truck): void {
     inquirer
       .prompt([
         {
@@ -328,11 +328,13 @@ class Cli {
         },
       ])
       .then((answers) => {
-        Truck.tow(answers.vehicleToTow);
-        this.performActions();
-        // TODO: check if the selected vehicle is the truck
-        // TODO: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
-        // TODO: if it is not, tow the selected vehicle then perform actions on the truck to allow the user to select another action
+        if (truck === answers.vehicleToTow) {
+          console.log('The truck cannot tow itself.');
+          this.performActions();
+        } else {
+          truck.tow(answers.vehicleToTow);
+          this.performActions();
+        }
       });
   }
 
@@ -423,7 +425,7 @@ class Cli {
         else if (answers.action === 'Truck') {
 
 
-        else if (answers.action === 'Select or create another vehicle') {
+        } else if (answers.action === 'Select or create another vehicle') {
           // start the cli to return to the initial prompt if the user wants to select or create another vehicle
           this.startCli();
           return;
@@ -460,7 +462,7 @@ class Cli {
       });
   }
 }
-}
+
 
 // export the Cli class
 export default Cli;
