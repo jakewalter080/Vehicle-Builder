@@ -4,6 +4,9 @@ import Truck from "./Truck.js";
 import Car from "./Car.js";
 import Motorbike from "./Motorbike.js";
 import Wheel from "./Wheel.js";
+import AbleToTow from "../interfaces/AbleToTow.js";
+
+
 
 // define the Cli class
 class Cli {
