@@ -24,7 +24,7 @@ This is a TypeScript command-line application that builds vehicles and allows us
 
 2. Open in VS Code (Install if you do not have it).
 
-3. Enter the CLI.ts Directory 'Vehicle-Builder' > 'src' > 'Cli.ts'
+3. Enter the root directory
 
 4. Run 'npm start' in the command line
 
@@ -52,7 +52,7 @@ Thank you for your interest, if you would like to contribute reach out to me via
 
 ## Testing
 
-Test this app in VS Code. Open the terminal, move into root directory 'Cli.ts', run 'npm start', and make your selections from the the prompts.
+Test this app in VS Code. Open the terminal, move into root directory, run 'npm start', and make your selections from the the prompts.
 
 ## Questions
 
